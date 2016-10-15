@@ -27,6 +27,7 @@ const defaultStyle = {
 
 let overlayZIndex = 999;
 let contentZIndex = 1000;
+let modalActiveCounter = 0;
 
 export default class Overlay extends React.Component {
   componentWillUnmount () {
@@ -77,11 +78,17 @@ Overlay.propTypes = {
 
 class PseudoOverlay extends React.Component {
   componentDidMount () {
+    modalActiveCounter++;
+    console.log('mount', modalActiveCounter);
     document.body.style.overflow = 'hidden';
   }
 
   componentWillUnmount () {
-    document.body.style.overflow = 'auto';
+    modalActiveCounter--;
+    console.log('unmount', modalActiveCounter);
+    if (modalActiveCounter === 0) {
+      document.body.style.overflow = 'auto';
+    }
   }
 
   render () {

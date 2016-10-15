@@ -27,17 +27,10 @@ const defaultStyle = {
 
 let overlayZIndex = 999;
 let contentZIndex = 1000;
+let modalActiveCounter = 0;
 
 export default class Modal extends React.Component {
-  componentWillUnmount () {
-    overlayZIndex--;
-    contentZIndex--;
-  }
-
   render () {
-    // make a newer modal can overlap on the elder modal
-    overlayZIndex++;
-    contentZIndex++;
     let {closeOnEsc, closeOnOutsideClick} = this.props;
     if (closeOnEsc === undefined) {
       closeOnEsc = false;
@@ -82,12 +75,24 @@ class PseudoModal extends React.Component {
   }
 
   componentDidMount () {
+    // make a newer modal can overlap on the elder modal
+    overlayZIndex++;
+    contentZIndex++;
+
     document.body.style.overflow = 'hidden';
+    modalActiveCounter++;
+
     this.setState({overlayDomHeight: this.overlayDomHeight}); //eslint-disable-line
   }
 
   componentWillUnmount () {
-    document.body.style.overflow = 'auto';
+    overlayZIndex--;
+    contentZIndex--;
+
+    modalActiveCounter--;
+    if (modalActiveCounter === 0) {
+      document.body.style.overflow = 'auto';
+    }
   }
 
   render () {
