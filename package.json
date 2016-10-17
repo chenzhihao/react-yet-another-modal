@@ -1,14 +1,14 @@
 {
   "name": "react-overlay",
   "version": "0.1.0",
-  "description": "React-overlay",
-  "main": "src/index.js",
+  "description": "react-yet-another-modal",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "NODE_ENV=development webpack-dev-server --hot --inline --history-api-fallback --config ./webpack/webpack.dev.config.js",
     "compile": "NODE_ENV=production webpack -p --config ./webpack/webpack.production.config.js",
     "static": "http-server ./dist -p 8080",
-    "build": "rm -rf ./dist/ && cp -r ./src/resources/ ./dist && npm run compile",
+    "build": "rm -rf ./dist/ && npm run compile",
     "eslint": "eslint --ext .js,.jsx --ignore-path ./.eslintignore --fix ./src/*"
   },
   "author": "",

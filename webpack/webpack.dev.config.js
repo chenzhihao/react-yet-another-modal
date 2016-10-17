@@ -6,7 +6,7 @@ var specificConfig = require('./specificConfig');
 config.entry = [
     'webpack-dev-server/client?http://localhost:8080', // WebpackDevServer host and port
     'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
-    path.resolve(__dirname, '../src/index.js')
+    path.resolve(__dirname, '../example/index.js')
   ];
 
 // https://github.com/webpack/webpack/issues/2393

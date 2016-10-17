@@ -29,7 +29,7 @@ var config = {
     loaders: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
+        exclude: /(node_modules|dist)/,
         loaders: ['react-hot','babel']
       }
     ]

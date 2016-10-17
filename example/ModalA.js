@@ -1,6 +1,5 @@
 import React, {
   Component,
-  PropTypes,
 } from 'react';
 import Modal from '../src/Modal';
 
@@ -19,7 +18,7 @@ class ModalA extends Component {
           title={'modal'}
           link={<span>Open</span>}
         >
-          <ModalB></ModalB>
+          <ModalB />
         </Modal>
         <span>Very long content.</span>
         <div style={{paddingTop: this.state.longContent ? '2000px' : '0px'}}>
@@ -30,8 +29,5 @@ class ModalA extends Component {
     );
   }
 }
-
-ModalA.propTypes = {};
-ModalA.defaultProps = {};
 
 export default ModalA;

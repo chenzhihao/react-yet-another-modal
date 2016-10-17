@@ -41,7 +41,6 @@ export default class Modal extends React.Component {
     return (
       <Portal
         {...this.props}
-        ref="portal"
         closeOnEsc={closeOnEsc}
         closeOnOutsideClick={closeOnOutsideClick}
         openByClickOn={this.props.link}
@@ -72,6 +71,10 @@ class PseudoModal extends React.Component {
   constructor (props) {
     super(props);
     this.state = {};
+    this.calculateWindowInnerHeight = () => {
+      this.contentMaxHeight = window.innerHeight;
+      this.setState({contentMaxHeight: this.contentMaxHeight});
+    };
   }
 
   componentDidMount () {
@@ -82,7 +85,10 @@ class PseudoModal extends React.Component {
     document.body.style.overflow = 'hidden';
     modalActiveCounter++;
 
-    this.setState({overlayDomHeight: this.overlayDomHeight}); //eslint-disable-line
+    window.addEventListener('resize', this.calculateWindowInnerHeight);
+
+    this.calculateWindowInnerHeight();
+    this.setState({contentMaxHeight: this.contentMaxHeight}); //eslint-disable-line
   }
 
   componentWillUnmount () {
@@ -93,6 +99,8 @@ class PseudoModal extends React.Component {
     if (modalActiveCounter === 0) {
       document.body.style.overflow = 'auto';
     }
+
+    window.removeEventListener('resize', this.calculateWindowInnerHeight);
   }
 
   render () {
@@ -100,11 +108,7 @@ class PseudoModal extends React.Component {
       <div>
         <div className={style.overlay}
              style={{zIndex: overlayZIndex}}
-             ref={overlayDom=> {
-               if (overlayDom) {
-                 this.overlayDomHeight = overlayDom.getBoundingClientRect().height;
-               }
-             }}
+
         >
         </div>
         <div className={style.content}
@@ -125,7 +129,7 @@ class PseudoModal extends React.Component {
             >
             </span>
           </div>
-          <div style={{maxHeight: this.state.overlayDomHeight ? (this.state.overlayDomHeight * 0.9) - 90 + 'px' : 'auto', overflowY: 'auto'}}>
+          <div style={{maxHeight: this.state.contentMaxHeight ? (this.state.contentMaxHeight * 0.9) - 90 + 'px' : 'auto', overflowY: 'auto'}}>
             <div className={style.userContent}>
               {/* just pass in closePortal Callback  */}
               <div>{React.cloneElement(this.props.content, {closePortal: this.props.closePortal})}</div>
