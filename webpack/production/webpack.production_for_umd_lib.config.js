@@ -43,7 +43,7 @@ config.module.loaders = config.module.loaders.concat(
     test: /\.s?css$/,
     loader: ExtractTextPlugin.extract('style-loader', specificConfig.useCssModules
       ? 'css-loader?modules&importLoaders=1&localIdentName=__[local]__[hash:base64:5]!postcss-loader'
-      : 'css-loader?sourceMap!postcss-loader!sass-loader', {publicPath: '../../'})
+      : 'css-loader?sourceMap!postcss-loader', {publicPath: '../../'})
   }
 );
 

@@ -2,9 +2,8 @@ var path = require('path');
 var webpack = require('webpack');
 var config = {
   entry: {
-    index: [
-      'babel-polyfill',
-      path.resolve(__dirname, '../example/index.js')
+    'react-yet-another-modal': [
+      path.resolve(__dirname, '../src/Modal.js')
     ]
   },
   output: {

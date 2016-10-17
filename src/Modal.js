@@ -17,7 +17,7 @@
 
 import React from 'react';
 import Portal from './portal';
-import style from './Modal.scss';
+import './Modal.scss';
 import cx from 'classnames';
 import _ from 'lodash';
 
@@ -105,22 +105,22 @@ class PseudoModal extends React.Component {
 
   render () {
     return (
-      <div>
-        <div className={style.overlay}
+      <div className="ryam">
+        <div className={'overlay'}
              style={{zIndex: overlayZIndex}}
 
         >
         </div>
-        <div className={style.content}
+        <div className={'content'}
              style={{
                width: _.get(this.props, 'styleProps.width', defaultStyle.width),
                zIndex: contentZIndex
              }}
         >
-          <div className={cx(style.modalHead, style.clearfix)}>
+          <div className={cx('modalHead', 'clearfix')}>
             <h2 style={{float: 'left'}}>{this.props.title}</h2>
             <span
-              className={style.closeBtn}
+              className={'closeBtn'}
               onClick={
                 ()=> {
                   this.props.beforeCloseCallback && this.props.beforeCloseCallback();
@@ -130,12 +130,12 @@ class PseudoModal extends React.Component {
             </span>
           </div>
           <div style={{maxHeight: this.state.contentMaxHeight ? (this.state.contentMaxHeight * 0.9) - 90 + 'px' : 'auto', overflowY: 'auto'}}>
-            <div className={style.userContent}>
+            <div className={'userContent'}>
               {/* just pass in closePortal Callback  */}
               <div>{React.cloneElement(this.props.content, {closePortal: this.props.closePortal})}</div>
             </div>
           </div>
-          <div className={style.footer}>
+          <div className={'footer'}>
           </div>
         </div>
       </div>
