@@ -1,25 +1,45 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from '../src/index';
-import ModalA from '../example/ModalA';
-import ModalB from '../example/ModalB';
+import ResizableModal from './ResizableModal';
+import ShortContentModal from './ShortContentModal';
+import NestModal from './NestModal';
+import ProgrammaticallyCloseModal from './ProgrammaticallyCloseModal';
 
 ReactDOM.render(
   <div>
-    test
-    <div style={{paddingTop: '2000px'}}></div>
+    Make the screen very long, please scroll down.
+    <div style={{paddingTop: '300px'}}>Scroll down</div>
+    <div style={{paddingTop: '300px'}}>Scroll down</div>
+    <div style={{paddingTop: '300px'}}>Scroll down</div>
+    <div style={{paddingTop: '300px'}}>Scroll down</div>
+    <div style={{paddingTop: '300px'}}>Scroll down</div>
     <Modal
-      link={<div>Open me</div>}
-      title="abc"
+      link={<button>Open a content resizable modal</button>}
+      title="A content resizable modal"
     >
-      <ModalA />
+      <ResizableModal />
     </Modal>
 
     <Modal
-      link={<div>Open me a small overlay</div>}
-      title="abc"
+      link={<button>Open a small modal</button>}
+      title="A short content modal"
     >
-      <ModalB />
+      <ShortContentModal />
+    </Modal>
+
+    <Modal
+      link={<button>Open a nested modal</button>}
+      title="A nested modal, the z-index and style will be handle automatically"
+    >
+      <NestModal />
+    </Modal>
+
+    <Modal
+      link={<button>Open a programmatically close modal</button>}
+      title="Modal"
+    >
+      <ProgrammaticallyCloseModal />
     </Modal>
   </div>
   , document.getElementById('app'));

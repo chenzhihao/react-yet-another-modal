@@ -43,6 +43,9 @@ export default class Modal extends React.Component {
         closeOnEsc={closeOnEsc}
         closeOnOutsideClick={closeOnOutsideClick}
         openByClickOn={this.props.link}
+        onOpen={this.props.onOpen}
+        beforeClose={this.props.beforeClose}
+        onClose={this.props.onClose}
       >
         <PseudoModal
           title={this.props.title}
@@ -56,14 +59,17 @@ export default class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  closeOnEsc: React.PropTypes.bool,
-  link: React.PropTypes.element,
+  link: React.PropTypes.element.isRequired,
   children: React.PropTypes.node.isRequired,
+  closeOnEsc: React.PropTypes.bool,
+  isOpened: React.PropTypes.bool,
   closeOnOutsideClick: React.PropTypes.bool,
   beforeCloseCallback: React.PropTypes.func,
   title: React.PropTypes.string,
-  isOpened: React.PropTypes.bool,
   styleProps: React.PropTypes.object,
+  onOpen: React.PropTypes.func,
+  beforeClose: React.PropTypes.func,
+  onClose: React.PropTypes.func,
 };
 
 class PseudoModal extends React.Component {
@@ -117,7 +123,7 @@ class PseudoModal extends React.Component {
              }}
         >
           <div className={cx('modalHead', 'clearfix')}>
-            <h2 style={{float: 'left'}}>{this.props.title}</h2>
+            <h2 className={cx('title')}>{this.props.title}</h2>
             <span
               className={'closeBtn'}
               onClick={
@@ -147,4 +153,5 @@ PseudoModal.propTypes = {
   beforeCloseCallback: React.PropTypes.func,
   content: React.PropTypes.element.isRequired,
   title: React.PropTypes.string,
+  styleProps: React.PropTypes.object,
 };

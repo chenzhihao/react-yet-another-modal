@@ -5,7 +5,11 @@ import React, {
 class ModalB extends Component {
   render () {
     return (
-      <div style={{paddingTop: '100px'}}>Short content</div>
+      <div>
+        <section>
+          Take a look at the outer scroll bar. It's gone however will back when you close the modal.
+        </section>
+      </div>
     );
   }
 }

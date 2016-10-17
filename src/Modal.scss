@@ -22,6 +22,10 @@
   }
 
   .modalHead {
+    .title {
+      float: left;
+      margin-right: 60px;
+    }
     background: #f9f9f9;
     padding-left: 35px;
     border-bottom: 1px solid #e0e0e0;

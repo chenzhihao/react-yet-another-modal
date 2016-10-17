@@ -110,7 +110,7 @@ export default class Portal extends React.Component {
 
     if (this.state.active) {
       if (this.props.beforeClose) {
-        this.props.beforeClose(this.node, resetPortalState);
+        this.props.beforeClose(this.node);
       } else {
         resetPortalState();
       }
