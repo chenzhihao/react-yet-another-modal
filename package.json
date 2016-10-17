@@ -1,5 +1,5 @@
 {
-  "name": "react-overlay",
+  "name": "react-yet-another-modal",
   "version": "0.1.0",
   "description": "react-yet-another-modal",
   "main": "dist/index.js",
@@ -11,8 +11,12 @@
     "build": "rm -rf ./dist/ && npm run compile",
     "eslint": "eslint --ext .js,.jsx --ignore-path ./.eslintignore --fix ./src/*"
   },
-  "author": "",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenzhihao/react-yet-another-modal.git"
+  },
+  "author": "cabtravis@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "babel-loader": "^6.2.4",
@@ -44,6 +48,8 @@
     "postcss-loader": "^0.9.1",
     "postcss-nested": "^1.0.0",
     "precss": "^1.4.0",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
     "react-hot-loader": "^1.3.0",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
@@ -53,8 +59,10 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "lodash": "^4.13.1",
-    "react": "15.1.0",
-    "react-dom": "15.1.0"
+    "lodash": "^4.13.1"
+  },
+  "peerDependencies": {
+    "react": "^15.0.0",
+    "react-dom": "^15.0.0"
   }
 }
