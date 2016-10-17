@@ -1,6 +1,6 @@
 {
   "name": "react-yet-another-modal",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "react-yet-another-modal",
   "main": "dist/index.js",
   "scripts": {
@@ -11,6 +11,14 @@
     "build": "rm -rf ./dist/ && npm run compile",
     "eslint": "eslint --ext .js,.jsx --ignore-path ./.eslintignore --fix ./src/*"
   },
+  "keywords": [
+    "react",
+    "modal",
+    "es6",
+    "popover",
+    "dialog",
+    "overlay"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chenzhihao/react-yet-another-modal.git"
