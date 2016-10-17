@@ -16,10 +16,9 @@
  */
 
 import React from 'react';
-import Portal from './portal';
+import Portal from './Portal';
 import './Modal.scss';
 import cx from 'classnames';
-import _ from 'lodash';
 
 const defaultStyle = {
   width: '80%',
@@ -113,7 +112,7 @@ class PseudoModal extends React.Component {
         </div>
         <div className={'content'}
              style={{
-               width: _.get(this.props, 'styleProps.width', defaultStyle.width),
+               width: this.props.styleProps && this.props.styleProps.width || defaultStyle.width,
                zIndex: contentZIndex
              }}
         >

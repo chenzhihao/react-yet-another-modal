@@ -3,7 +3,7 @@ var webpack = require('webpack');
 var config = {
   entry: {
     'react-yet-another-modal': [
-      path.resolve(__dirname, '../src/Modal.js')
+      path.resolve(__dirname, '../src/index.js')
     ]
   },
   output: {
