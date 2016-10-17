@@ -1,7 +1,7 @@
 import React, {
   Component,
 } from 'react';
-import Modal from '../src/Modal';
+import Modal from '../lib/Modal';
 
 import ModalB from './ModalB';
 

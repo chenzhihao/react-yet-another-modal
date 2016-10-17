@@ -5,7 +5,7 @@ const buildModeOptions = [
 ];
 const specificConfig = {
   useCssModules: true,
-  useSourceMapInProd: true,
+  useSourceMapInProd: false,
   buildMode: buildModeOptions[2],
   extractResourcePublicPath: './assets',
 };

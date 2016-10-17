@@ -37,7 +37,7 @@ config.module.preLoaders = [
   {
     test: /\.jsx?$/,
     loader: 'eslint-loader',
-    exclude: [/node_modules/ , /src\/libs/],
+    exclude: [/node_modules/],
   }
 ];
 
@@ -47,7 +47,7 @@ config.eslint = {
 
 config.plugins = config.plugins.concat(
   new HtmlWebpackPlugin({
-    title: 'Zhihao\'s app',
+    title: 'react yet another modal',
     template: 'indexTemplate.html',
     filename: 'index.html',
     inject: true,

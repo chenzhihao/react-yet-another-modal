@@ -4,7 +4,7 @@ var config = {
   entry: {
     index: [
       'babel-polyfill',
-      path.resolve(__dirname, '../src/index.js')
+      path.resolve(__dirname, '../example/index.js')
     ]
   },
   output: {
@@ -14,16 +14,6 @@ var config = {
   externals: [],
   eslint: {
     configFile: '.eslintrc'
-  },
-  resolve: {
-    root: [
-      path.resolve(__dirname, '../src')
-    ],
-    alias: {
-      'commonStyle': path.resolve(__dirname, '../src/common/style'),
-      'components': path.resolve(__dirname, '../src/common/components'),
-      'common': path.resolve(__dirname, '../src/common'),
-    }
   },
   module: {
     loaders: [

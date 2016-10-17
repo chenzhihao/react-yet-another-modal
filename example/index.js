@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Modal from '../dist/index';
+import Modal from '../lib/index';
 import ModalA from '../example/ModalA';
 import ModalB from '../example/ModalB';
 

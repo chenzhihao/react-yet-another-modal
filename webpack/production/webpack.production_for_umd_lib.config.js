@@ -27,7 +27,7 @@ config.plugins = config.plugins.concat([
     }
   }),
 
-  new ExtractTextPlugin('assets/styles/[name].css?[hash]-[chunkhash]-[contenthash]-[name]', {
+  new ExtractTextPlugin('[name].css?[hash]-[chunkhash]-[contenthash]-[name]', {
     allChunks: true
   })
 ]);
@@ -41,9 +41,9 @@ config.module.loaders = config.module.loaders.concat(
   },
   {
     test: /\.s?css$/,
-    loader: 'style-loader!' + specificConfig.useCssModules
+    loader: ExtractTextPlugin.extract('style-loader', specificConfig.useCssModules
       ? 'css-loader?modules&importLoaders=1&localIdentName=__[local]__[hash:base64:5]!postcss-loader'
-      : 'css-loader?sourceMap!postcss-loader!sass-loader'
+      : 'css-loader?sourceMap!postcss-loader!sass-loader', {publicPath: '../../'})
   }
 );
 
