@@ -27,6 +27,7 @@ const defaultStyle = {
 let overlayZIndex = 999;
 let contentZIndex = 1000;
 let modalActiveCounter = 0;
+let initalWindowOverflow;
 
 export default class Modal extends React.Component {
   render () {
@@ -87,7 +88,10 @@ class PseudoModal extends React.Component {
     overlayZIndex++;
     contentZIndex++;
 
-    document.body.style.overflow = 'hidden';
+    if (modalActiveCounter === 0) {
+      initalWindowOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    }
     modalActiveCounter++;
 
     window.addEventListener('resize', this.calculateWindowInnerHeight);
@@ -102,7 +106,7 @@ class PseudoModal extends React.Component {
 
     modalActiveCounter--;
     if (modalActiveCounter === 0) {
-      document.body.style.overflow = 'auto';
+      document.body.style.overflow = initalWindowOverflow;
     }
 
     window.removeEventListener('resize', this.calculateWindowInnerHeight);
