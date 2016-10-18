@@ -97,13 +97,19 @@ Sometimes you need to close your modal programmatically.
 A props **closePortal** is injected into your Modal Content Component automatically directly.
 
 ```jsx
-  <Modal title="My modal">
-    <div>
+  let ProgrammaticallyCloseModal = props => {
+    return (<div>
       <section>
         <button onClick={()=>this.props.closePortal()}>
           Close
         </button>
       </section>
-    </div>
+    </div>);
+  }
+
+  ...
+
+  <Modal title="My modal">
+    <ProgrammaticallyCloseModal />
   </Modal>
 ```
