@@ -3,6 +3,8 @@
 
 > React modal which is dead simple, semantic, flexible.
 
+## Showcase
+![](http://imgur.com/L7AmXs5.gif)
 ## Features
 
 - transports modal content into a new React component and appends it to the **document.body** (creates a new independent React tree)
