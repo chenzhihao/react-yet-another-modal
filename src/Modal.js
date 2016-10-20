@@ -60,7 +60,7 @@ export default class Modal extends React.Component {
 }
 
 Modal.propTypes = {
-  link: React.PropTypes.element.isRequired,
+  link: React.PropTypes.element,
   children: React.PropTypes.node.isRequired,
   closeOnEsc: React.PropTypes.bool,
   isOpened: React.PropTypes.bool,
@@ -83,15 +83,18 @@ class PseudoModal extends React.Component {
     };
   }
 
+  componentWillMount () {
+    if (modalActiveCounter === 0) {
+      initalWindowOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
   componentDidMount () {
     // make a newer modal can overlap on the elder modal
     overlayZIndex++;
     contentZIndex++;
 
-    if (modalActiveCounter === 0) {
-      initalWindowOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-    }
     modalActiveCounter++;
 
     window.addEventListener('resize', this.calculateWindowInnerHeight);
